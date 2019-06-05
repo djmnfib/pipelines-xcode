@@ -6,10 +6,19 @@
 pool:
   vmImage: 'macOS 10.13'
 
+
 steps:
+
+- task: InstallAppleProvisioningProfile@1
+  inputs:
+    provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'ESLP__DV__Dist'
+    
 - task: Xcode@5
   inputs:
     scheme: ''
     sdk: 'iphoneos'
     configuration: 'Release'
     xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
+
+
